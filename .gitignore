@@ -1,0 +1,11 @@
+# Maven
+build
+target
+
+# Netbeans
+nbproject
+nb*.xml
+
+# IntelliJ
+*.iml
+.idea
