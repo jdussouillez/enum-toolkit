@@ -39,21 +39,60 @@ public class EnumUtilsTest {
     public void testOfEmptyName() {
         // KO, empty name
         assertFalse(EnumUtils.of(TestEnums.Role.class, "").isPresent());
-        // KO, null value
-        NullPointerException ex = assertThrows(
-            NullPointerException.class,
-            () -> assertFalse(EnumUtils.of(TestEnums.Role.class, null).isPresent())
-        );
-        assertEquals("Name is null", ex.getMessage());
     }
 
     @Test
     public void testOfNullName() {
         // KO, null name
-        NullPointerException ex = assertThrows(
+        assertThrows(
             NullPointerException.class,
-            () -> assertFalse(EnumUtils.of(TestEnums.Role.class, null).isPresent())
+            () -> EnumUtils.of(TestEnums.Role.class, null).isPresent()
         );
-        assertEquals("Name is null", ex.getMessage());
+    }
+
+    /*
+     * of (with custom case mode)
+     */
+    @Test
+    public void testOfCaseMode() {
+        // OK (case sensitive)
+        assertEquals(TestEnums.Role.ADMIN, EnumUtils.of(TestEnums.Role.class, "ADMIN", true).get());
+        assertEquals(TestEnums.Role.MOD, EnumUtils.of(TestEnums.Role.class, "MOD", true).get());
+        assertEquals(TestEnums.Role.USER, EnumUtils.of(TestEnums.Role.class, "USER", true).get());
+        assertEquals(TestEnums.Role.GUEST, EnumUtils.of(TestEnums.Role.class, "GUEST", true).get());
+
+        // OK (case insensitive)
+        assertEquals(TestEnums.Role.ADMIN, EnumUtils.of(TestEnums.Role.class, "Admin", false).get());
+        assertEquals(TestEnums.Role.MOD, EnumUtils.of(TestEnums.Role.class, "mod", false).get());
+        assertEquals(TestEnums.Role.USER, EnumUtils.of(TestEnums.Role.class, "usEr", false).get());
+    }
+
+    @Test
+    public void testOfCaseNotInEnum() {
+        // KO, not in enum
+        assertFalse(EnumUtils.of(TestEnums.Role.class, "FOO", true).isPresent());
+        assertFalse(EnumUtils.of(TestEnums.Role.class, "FOO", false).isPresent());
+        assertFalse(EnumUtils.of(TestEnums.Role.class, "foo", true).isPresent());
+        assertFalse(EnumUtils.of(TestEnums.Role.class, "foo", false).isPresent());
+    }
+
+    @Test
+    public void testOfCaseEmptyName() {
+        // KO, empty name
+        assertFalse(EnumUtils.of(TestEnums.Role.class, "", true).isPresent());
+        assertFalse(EnumUtils.of(TestEnums.Role.class, "", false).isPresent());
+    }
+
+    @Test
+    public void testOfNullCaseName() {
+        // KO, null name
+        assertThrows(
+            NullPointerException.class,
+            () -> EnumUtils.of(TestEnums.Role.class, null, true).isPresent()
+        );
+        assertThrows(
+            NullPointerException.class,
+            () -> EnumUtils.of(TestEnums.Role.class, null, false).isPresent()
+        );
     }
 }
