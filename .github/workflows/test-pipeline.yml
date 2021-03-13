@@ -25,5 +25,5 @@ jobs:
           with:
               java-version: ${{matrix.java}}
         - name: mvn-build
-          run: mvn -B package
+          run: mvn -B verify
 
