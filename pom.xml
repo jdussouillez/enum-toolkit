@@ -7,7 +7,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.url>https://github.com/jdussouillez/enum-toolkit</project.url>
-        <!--<module.bool-logic.path>${module.root.path}${fs}bool-logic</module.bool-logic.path>-->
     </properties>
 
     <modelVersion>4.0.0</modelVersion>
@@ -20,8 +19,7 @@
     <url>${project.url}</url>
 
     <modules>
-        <module>core</module>
-        <!--<module>bool-logic</module>-->
+        <module>enum-toolkit-core</module>
     </modules>
 
     <profiles>
