@@ -20,10 +20,11 @@ jobs:
                 java: [11, 12, 13, 14, 15]
         steps:
         - uses: actions/checkout@v2
-        - name: setup-jdk
+        - name: Setup the JDK
+          id: setup-jdk
           uses: actions/setup-java@v1
           with:
               java-version: ${{matrix.java}}
-        - name: mvn-build
+        - name: Maven build & verify
+          id: mvn-verify
           run: mvn -B verify
-
