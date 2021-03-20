@@ -1,16 +1,9 @@
-name: test-pipeline
+name: CD (build, test deploy)
 
 on:
     push:
         branches:
-            - develop
-            - "feature/**"
-            - "hotfix/**"
-    pull_request:
-        branches:
-            - develop
-            - "feature/**"
-            - "hotfix/**"
+            - master
 
 jobs:
     build:
