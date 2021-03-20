@@ -1,0 +1,23 @@
+name: CD (build, test deploy)
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                java: [11, 12, 13, 14, 15]
+        steps:
+        - uses: actions/checkout@v2
+        - name: Setup the JDK
+          id: setup-jdk
+          uses: actions/setup-java@v1
+          with:
+              java-version: ${{matrix.java}}
+        - name: Maven build & verify
+          id: mvn-verify
+          run: mvn -B verify
