@@ -7,7 +7,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.url>https://github.com/jdussouillez/enum-toolkit</project.url>
-        <!--<module.bool-logic.path>${module.root.path}${fs}bool-logic</module.bool-logic.path>-->
     </properties>
 
     <modelVersion>4.0.0</modelVersion>
@@ -20,9 +19,29 @@
     <url>${project.url}</url>
 
     <modules>
-        <module>core</module>
-        <!--<module>bool-logic</module>-->
+        <module>enum-toolkit-core</module>
     </modules>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>DUSSOUILLE</id>
+            <name>Junior DUSSOUILLEZ</name>
+            <url>https://github.com/jdussouillez</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:jdussouillez/enum-toolkit.git</connection>
+        <developerConnection>scm:git:git@github.com:jdussouillez/enum-toolkit.git</developerConnection>
+        <url>https://github.com/jdussouillez/enum-toolkit</url>
+    </scm>
 
     <profiles>
         <profile>
@@ -53,15 +72,15 @@
         </profile>
     </profiles>
 
-    <developers>
-        <developer>
-            <id>DUSSOUILLE</id>
-            <name>Junior DUSSOUILLEZ</name>
-            <url>https://github.com/jdussouillez</url>
-        </developer>
-    </developers>
-
     <dependencies>
+        <!-- Test dependencies -->
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.7.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
