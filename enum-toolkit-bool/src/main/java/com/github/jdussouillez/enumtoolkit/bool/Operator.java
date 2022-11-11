@@ -15,9 +15,21 @@ import lombok.RequiredArgsConstructor;
 public enum Operator {
 
     /**
-     * Not operation
+     * NOT operator
      */
-    NOT("~");
+    NOT("~"),
+    /**
+     * AND operator
+     */
+    AND("&"),
+    /**
+     * OR operator
+     */
+    OR("|"),
+    /**
+     * XOR operator
+     */
+    XOR("^");
 
     /**
      * Symbol

@@ -1,6 +1,7 @@
 package com.github.jdussouillez.enumtoolkit.bool;
 
-import com.github.jdussouillez.enumtoolkit.TestEnums;
+import com.github.jdussouillez.enumtoolkit.TestEnums.Role;
+import static com.github.jdussouillez.enumtoolkit.bool.Expression.not;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +12,7 @@ public class NotOperationTest {
 
     @Test
     public void testToString() {
-        assertEquals("~GUEST", Expression.not(TestEnums.Role.GUEST).toString());
-        assertEquals("~(~GUEST)", Expression.not(Expression.not(TestEnums.Role.GUEST)).toString());
+        assertEquals("~GUEST", not(Role.GUEST).toString());
+        assertEquals("~(~GUEST)", not(not(Role.GUEST)).toString());
     }
 }

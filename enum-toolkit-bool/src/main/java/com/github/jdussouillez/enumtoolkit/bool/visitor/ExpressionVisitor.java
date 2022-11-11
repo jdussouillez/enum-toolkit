@@ -1,9 +1,12 @@
 package com.github.jdussouillez.enumtoolkit.bool.visitor;
 
+import com.github.jdussouillez.enumtoolkit.bool.AndOperation;
 import com.github.jdussouillez.enumtoolkit.bool.Expression;
 import com.github.jdussouillez.enumtoolkit.bool.NotOperation;
 import com.github.jdussouillez.enumtoolkit.bool.Operation;
+import com.github.jdussouillez.enumtoolkit.bool.OrOperation;
 import com.github.jdussouillez.enumtoolkit.bool.Primitive;
+import com.github.jdussouillez.enumtoolkit.bool.XorOperation;
 
 /**
  * Enum expression visitor
@@ -44,4 +47,28 @@ public interface ExpressionVisitor<E extends Enum<E>, R> {
      * @return The result after the visit
      */
     R visit(NotOperation<E> operation);
+
+    /**
+     * Visits a "AND" operation
+     *
+     * @param operation Operation
+     * @return The result after the visit
+     */
+    R visit(AndOperation<E> operation);
+
+    /**
+     * Visits a "AND" operation
+     *
+     * @param operation Operation
+     * @return The result after the visit
+     */
+    R visit(OrOperation<E> operation);
+
+    /**
+     * Visits a "AND" operation
+     *
+     * @param operation Operation
+     * @return The result after the visit
+     */
+    R visit(XorOperation<E> operation);
 }
