@@ -1,6 +1,6 @@
 package com.github.jdussouillez.enumtoolkit.bool;
 
-import com.github.jdussouillez.enumtoolkit.TestEnums.Role;
+import com.github.jdussouillez.enumtoolkit.TestEnums.ProgramOption;
 import static com.github.jdussouillez.enumtoolkit.bool.Expression.not;
 import static com.github.jdussouillez.enumtoolkit.bool.Expression.or;
 import static com.github.jdussouillez.enumtoolkit.bool.Expression.primitive;
@@ -18,7 +18,7 @@ public class OrOperationTest {
      */
     @Test
     public void testConstructorMissingParameters() {
-        var ex = assertThrows(IllegalArgumentException.class, () -> new OrOperation<>(primitive(Role.MOD)));
+        var ex = assertThrows(IllegalArgumentException.class, () -> new OrOperation<>(primitive(ProgramOption.DRY)));
         assertEquals("Invalid number of expr parameters (min: 2, max: -)", ex.getMessage());
     }
 
@@ -27,7 +27,7 @@ public class OrOperationTest {
      */
     @Test
     public void testToString() {
-        assertEquals("MOD | ADMIN", or(primitive(Role.MOD), primitive(Role.ADMIN)).toString());
-        assertEquals("MOD | (~ADMIN)", or(primitive(Role.MOD), not(Role.ADMIN)).toString());
+        assertEquals("REGEXP | DRY", or(primitive(ProgramOption.REGEXP), primitive(ProgramOption.DRY)).toString());
+        assertEquals("REGEXP | (~DRY)", or(primitive(ProgramOption.REGEXP), not(ProgramOption.DRY)).toString());
     }
 }

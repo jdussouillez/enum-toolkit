@@ -26,4 +26,34 @@ public class TestEnums {
          */
         GUEST
     }
+
+    /**
+     * Simple enum to represent program options
+     */
+    public static enum ProgramOption {
+        /**
+         * Verbose
+         */
+        VERBOSE,
+        /**
+         * Quiet
+         */
+        QUIET,
+        /**
+         * Dry mode
+         */
+        DRY,
+        /**
+         * Enable regular expression
+         */
+        REGEXP,
+        /**
+         * Output as JSON
+         */
+        OUTPUT_JSON,
+        /**
+         * Output as YAML
+         */
+        OUTPUT_YAML
+    }
 }
