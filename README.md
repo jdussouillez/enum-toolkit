@@ -7,6 +7,8 @@ Java library to simplify the enum management
 
 Code module
 
+Provides an `EnumUtils` class to manage Java enums easily and using the last Java features (`Optional`, ...).
+
 ### Boolean logic
 
 Provides some tools to process some "boolean logic like operations" on enums (`AND`, `XOR`, `NOT`...).
