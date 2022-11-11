@@ -10,7 +10,7 @@ import java.util.stream.Stream;
  * Contains various methods and tools to simplify enum usage
  * </p>
  */
-public class EnumUtils {
+public final class EnumUtils {
 
     /**
      * Constructor
