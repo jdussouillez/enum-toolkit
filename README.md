@@ -44,7 +44,7 @@ expr1: QUIET & VERBOSE & DRY => false
 expr2: VERBOSE & (~DRY) & (REGEXP | OUTPUT_JSON) => true
 ```
 
-*Disclaimer: this module exists because I like to play with enums, it's not really useful, has no very good performance and may be not production-ready yet.*
+*Note: this module exists because I like to play with Java and enums, it's not really useful, has no very good performance and may be not production-ready yet.*
 
 ## Contributing
 
