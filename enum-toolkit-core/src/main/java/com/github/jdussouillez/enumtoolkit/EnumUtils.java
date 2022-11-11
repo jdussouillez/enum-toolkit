@@ -1,6 +1,7 @@
 package com.github.jdussouillez.enumtoolkit;
 
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 /**
@@ -51,11 +52,25 @@ public final class EnumUtils {
      */
     public static <E extends Enum<E>> Optional<E> of(final Class<E> clazz, final String name,
         final boolean caseSensitive) {
-        if (caseSensitive) {
-            return of(clazz, name);
-        }
+        return caseSensitive
+            ? of(clazz, name)
+            : of(clazz, name.toLowerCase(), e -> e.name().toLowerCase());
+    }
+
+    /**
+     * Returns the enum value from a value
+     *
+     * @param <E> Enum type
+     * @param <V> Value type
+     * @param clazz Enum class
+     * @param value Enum value
+     * @param valueGenerator Value generator
+     * @return The enum value retrieved from the value
+     */
+    public static <E extends Enum<E>, V> Optional<E> of(final Class<E> clazz, final V value,
+        final Function<E, V> valueGenerator) {
         return Stream.of(clazz.getEnumConstants())
-            .filter(e -> name.equalsIgnoreCase(e.name()))
+            .filter(e -> valueGenerator.apply(e).equals(value))
             .findFirst();
     }
 }

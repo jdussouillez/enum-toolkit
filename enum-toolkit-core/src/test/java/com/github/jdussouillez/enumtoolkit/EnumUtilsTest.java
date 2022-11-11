@@ -1,6 +1,7 @@
 package com.github.jdussouillez.enumtoolkit;
 
 import com.github.jdussouillez.enumtoolkit.TestEnums.Role;
+import java.util.function.Function;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -95,5 +96,15 @@ public class EnumUtilsTest {
             NullPointerException.class,
             () -> EnumUtils.of(Role.class, null, false).isPresent()
         );
+    }
+
+    /*
+     * of
+     */
+    @Test
+    public void testOfCustomGenerator() {
+        var generator = (Function<Role, Integer>) Role::hashCode;
+        assertEquals(Role.ADMIN, EnumUtils.of(Role.class, Role.ADMIN.hashCode(), generator).get());
+        assertFalse(EnumUtils.of(Role.class, 123, generator).isPresent());
     }
 }
