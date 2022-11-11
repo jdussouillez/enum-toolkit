@@ -16,11 +16,10 @@ public final class EnumUtils {
      * Constructor
      */
     private EnumUtils() {
-        // Private constructor to prevent instance creation
     }
 
     /**
-     * Retrieve the enum value from its name
+     * Returns the enum value from its name
      *
      * @param <E> Enum type
      * @param clazz Enum class
@@ -36,7 +35,7 @@ public final class EnumUtils {
     }
 
     /**
-     * Retrieve the enum value from its name (case insensitive)
+     * Returns the enum value from its name (case insensitive)
      *
      * <p>
      * Please know that using caseSensitive with "false" is much slower than the case sensitive execution. Why ? Because

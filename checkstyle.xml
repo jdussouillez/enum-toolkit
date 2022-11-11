@@ -79,7 +79,8 @@
             <property
                 name="excludes"
                 value="org.junit.jupiter.api.Assertions.*,
-                    org.junit.jupiter.api.Assumptions.*"
+                    org.junit.jupiter.api.Assumptions.*,
+                    com.github.jdussouillez.enumtoolkit.bool.Expression.*"
             />
         </module>
         <module name="AvoidStarImport"/>
