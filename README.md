@@ -19,7 +19,7 @@ Examples :
 
 ### Environment
 
-- JDK 11+
+- JDK 17+
 - Maven 3.6+
 
 ### Conventions/tools
