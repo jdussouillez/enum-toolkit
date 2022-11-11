@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: ${{matrix.java}}
+          distribution: 'adopt'
       - name: Maven build & verify
         id: mvn-verify
         run: mvn -B verify
