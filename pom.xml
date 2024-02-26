@@ -27,14 +27,16 @@
         <license>
             <name>MIT License</name>
             <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
 
     <developers>
         <developer>
-            <id>DUSSOUILLE</id>
+            <id>jdussouillez</id>
             <name>Junior DUSSOUILLEZ</name>
             <url>https://github.com/jdussouillez</url>
+            <timezone>Europe/Paris</timezone>
         </developer>
     </developers>
 
@@ -43,6 +45,11 @@
         <developerConnection>scm:git:git@github.com:jdussouillez/enum-toolkit.git</developerConnection>
         <url>https://github.com/jdussouillez/enum-toolkit</url>
     </scm>
+    
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/jdussouillez/enum-toolkit/issues</url>
+    </issueManagement>
 
     <profiles>
         <profile>
